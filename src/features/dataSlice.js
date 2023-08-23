@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = { 
-    objectId: 10243,
+const initialState = {
+    objectId: 10245,
     apiData: {}
 }
 
@@ -18,16 +18,16 @@ export const dataSlice = createSlice({
         inputId: (state, action) => {
             return { ...state, objectId: action.payload }
         },
-        plusOne: (state, action) => {
-            return { ...state, objectId: action.payload + 1}
+        plusOne: (state) => {
+            return { ...state, objectId: state.objectId + 1 }
         },
-        minusOne: (state, action) => {
-            return { ...state, objectId: action.payload - 1}
+        minusOne: (state) => {
+            return { ...state, objectId: state.objectId - 1 }
         }
     }
 })
 
-export const { setData, plusOne, minusOne, inputId, clearData } = dataSlice.actions
+export const { setData, clearData, plusOne, minusOne, inputId } = dataSlice.actions
 
 export const fetchData = () => {
     const fetchDataThunk = async (dispatch, getState) => {
